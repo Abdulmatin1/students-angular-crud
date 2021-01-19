@@ -24,4 +24,25 @@ addStudent(student: Students): Observable<Object>{
   return this.httpClient.post(`${this.backendapi}`, student);
 }
 
+
+
+  getStudentById(id: number): Observable<Students>{
+
+      return this.httpClient.get<Students>(`${this.backendapi}/${id}`);
+  }
+
+
+upateStudent(id: number, student: Students): Observable<Object>{
+
+  return this.httpClient.put(`${this.backendapi}/${id}`, student);
+}
+
+
+
+
+deleteStudent(id: number): Observable<Object>{
+  return this.httpClient.delete(`${this.backendapi}/${id}`);
+
+}
+
 }

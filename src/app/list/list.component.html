@@ -9,29 +9,39 @@
 
 
   <div class="container">
-
+    Search
+    <input type="text" class="form-control" placeholder="search the student you want"  [(ngModel)]="searchkeyWord" >
 
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Email</th>
+          <th (click)="sortStudents('id')"  >  ID <i class="fa fa-sort"></i> </th>
+          <th (click)="sortStudents('firstName')">First Name  <i class="fa fa-sort"></i></th>
+          <th (click)="sortStudents('lastName')">Last Name <i class="fa fa-sort"></i></th>
+          <th (click)="sortStudents('email')">Email  <i class="fa fa-sort"></i></th>
+          <th >Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of students">
+        <tr *ngFor="let student of students | filter : searchkeyWord | orderBy : key : reverse |  paginate: { itemsPerPage: 5, currentPage: p } "  >
 
           <td> {{student.id}} </td>
           <td> {{student.firstName}} </td>
           <td> {{student.lastName}} </td>
-          <td> {{student.email}} </td>
+          <td> {{student.lastName}} </td>
 
+
+          <td>
+            <button (click)="updateStudent(student.id)" class="btn btn-primary" >Edite</button> -
+            <button (click)="deleteStudent(student.id)" class="btn btn-danger" >delete</button> -
+            <button (click)="detailStudent(student.id)" class="btn btn-info" >detail</button>
+
+          </td>
         </tr>
 
 
       </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </table>
 
 

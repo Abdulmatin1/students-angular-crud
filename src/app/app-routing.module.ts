@@ -7,10 +7,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/add', pathMatch: 'full' }, // redirect to `first-component`
   {path: 'list', component: ListComponent},
   {path: 'add', component: AddComponent},
-  {path: 'upadate/id', component: UpdateComponent},
-  {path: 'detail/id', component: DetailComponent},
+  {path: 'upadate/:id', component: UpdateComponent},
+  {path: 'detail/:id', component: DetailComponent},
 
 ];
 

@@ -6,72 +6,93 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="container" >
 
-<div class="container" >
+    <form    (ngSubmit)="onSubmit(myForm)" #myForm="ngForm" >
 
- <form (ngSubmit)="onSubmit(form)" #form="ngForm" >
+     
+     <div class="form-group col-md-4 md-3">
+         <label for="firstName" class="control-label"> FirstName</label>
+         <input
+         type="text"
+         name="firstName"
+         #firstName="ngModel"
+         required
+         minlength="2"
+         maxlength="10"
+       
+         class="form-control"
+         id="firstName"
+         placeholder="enter your fist Name"
+         [(ngModel)]="student.firstName" >
+
+         <div  *ngIf="firstName.touched && firstName.invalid">
+          <div class="alrt alert-danger" *ngIf="firstName.errors.required"> first Name is required </div>
+          <div class="alrt alert-danger" *ngIf="firstName.errors.minlength">firstName shouble be minimum  2 charecters </div>
+          <div class="alrt alert-danger" *ngIf="firstName.errors.maxlength"> firstName shouble be maximam  10 charecters  </div>
+           
+      </div>
+ 
+ 
+     </div>
 
 
 
-  <div class="form-group col-md-4 md-3">
-      <label for="firstName"> FirstName</label>
-      <input
-      type="text"
-      name="firstName"
-      class="form-control is-valid"
-      id="firstName"
-      placeholder="enter your fist Name"
-      [(ngModel)]="student.firstName">
+     <div class="form-group col-md-4 md-3">
+       <label for="lastName"> LastName</label>
+       <input
+       type="text"
+       name="lastName"
+       #lastName="ngModel"
+       required
+       minlength="2"
+       maxlength="10"
+       
+       class="form-control"
+       id="lastName"
+       placeholder="enter your fist Name"
+       [(ngModel)]="student.lastName" >
 
+       
+       <div  *ngIf="lastName.touched && lastName.invalid">
+        <div class="alrt alert-danger" *ngIf="lastName.errors.required"> lastName is required </div>
+        <div class="alrt alert-danger" *ngIf="lastName.errors.minlength">lastName shouble be minimum  2 charecters </div>
+        <div class="alrt alert-danger" *ngIf="lastName.errors.maxlength"> lastName shouble be maximam  10 charecters  </div>
+         
+    </div>
+   </div>
+
+
+
+   <div class="form-group col-md-4 md-3">
+     <label for="email"> Email</label>
+     <input
+     type="text"
+     name="email"
+     #email="ngModel"
+     required
+     minlength="2"
+     maxlength="10"
+     class="form-control"
+     id="email"
+     placeholder="enter your fist Name"
+     [(ngModel)]="student.email" >
+     
+     <div  *ngIf="email.touched && email.invalid">
+      <div class="alrt alert-danger" *ngIf="email.errors.required"> email is required </div>
+      <div class="alrt alert-danger" *ngIf="email.errors.minlength">email shouble be minimum  2 charecters </div>
+      <div class="alrt alert-danger" *ngIf="email.errors.maxlength"> email shouble be maximam  10 charecters  </div>
+       
   </div>
 
 
 
-  <div class="form-group col-md-4 md-3">
-    <label for="lastName"> LastName</label>
-    <input
-    type="text"
-    name="lastName"
-    class="form-control is-valid"
-    id="lastName"
-    placeholder="enter your fist Name"
-    [(ngModel)]="student.lastName">
 
-</div>
-
-
-
-<div class="form-group col-md-4 md-3">
-  <label for="email"> Email</label>
-  <input
-  type="text"
-  name="email"
-  class="form-control is-invalid"
-  id="email"
-  placeholder="enter your fist Name"
-  [(ngModel)]="student.email">
-
-</div>
-
-<button type="submit" class="btn btn-primary" >add</button>
- </form>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
+   </div>
+ 
+   <button [disabled]="!myForm.valid"   type="submit" class="btn btn-primary" >add</button>
+    </form>
+   </div>
 
 </body>
 </html>

@@ -1,1 +1,77 @@
-<p>update works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<div class="container" >
+
+ <form (ngSubmit)="onSubmit()"  >
+
+
+  <div class="form-group col-md-4 md-3">
+      <label for="firstName"> FirstName</label>
+      <input
+      type="text"
+      name="firstName"
+      class="form-control is-valid"
+      id="firstName"
+      placeholder="enter your fist Name"
+      [(ngModel)]="student.firstName">
+
+  </div>
+
+
+
+  <div class="form-group col-md-4 md-3">
+    <label for="lastName"> LastName</label>
+    <input
+    type="text"
+    name="lastName"
+    class="form-control is-valid"
+    id="lastName"
+    placeholder="enter your fist Name"
+    [(ngModel)]="student.lastName">
+
+</div>
+
+
+
+<div class="form-group col-md-4 md-3">
+  <label for="email"> Email</label>
+  <input
+  type="text"
+  name="email"
+  class="form-control is-invalid"
+  id="email"
+  placeholder="enter your fist Name"
+  [(ngModel)]="student.email">
+
+</div>
+
+<button type="submit" class="btn btn-primary" >update</button>
+ </form>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

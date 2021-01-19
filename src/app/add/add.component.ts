@@ -2,7 +2,8 @@ import { Router } from '@angular/router';
 import { Students } from './../students';
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
-import { NgForm } from '@angular/forms';
+import {NgForm } from '@angular/forms';
+ 
 
 @Component({
   selector: 'app-add',
@@ -11,18 +12,27 @@ import { NgForm } from '@angular/forms';
 })
 export class AddComponent implements OnInit {
   student: Students = new Students();
-  constructor(private stuService: StudentService, private myRout: Router) { }
+
+ 
+   
+  constructor(private stuService: StudentService, private myRout: Router,) { }
 
 
-  onSubmit(form: NgForm){
+  onSubmit(myForm: NgForm){
     console.log(this.student)
     this.addStudent();
-    form.reset();
+    myForm.reset();
 
 
   }
+
+  // for validation use
   ngOnInit(): void {
+   
+
+
   }
+ 
 
 
 
